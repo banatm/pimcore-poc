@@ -1,0 +1,9 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: true
+    # tool: installer
+    ProductsBundle\Tool\Install: ~
+    # configuration
+    ProductsBundle\Configuration\Configuration: ~
