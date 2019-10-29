@@ -32,6 +32,9 @@ services:
 
   pimcore:
 #    image: dpfaffenbauer/pimcore:PHP7.2-apache
+    depends_on:
+      - db
+      - redis
     build:
       context: pimcore-app
       dockerfile: Dockerfile
