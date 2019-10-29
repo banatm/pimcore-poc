@@ -10,6 +10,8 @@ else
   ./bin/console pimcore:bundle:install DataDefinitionsBundle
   ./bin/console pimcore:bundle:enable  PimcoreDataHubBundle
   ./bin/console pimcore:bundle:install  PimcoreDataHubBundle
+  ./bin/console pimcore:bundle:enable ProductsBundle
+  ./bin/console pimcore:bundle:install ProductsBundle
   chown -R www-data:www-data /var/www/html
 fi
 

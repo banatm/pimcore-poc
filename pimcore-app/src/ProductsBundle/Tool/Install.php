@@ -42,10 +42,6 @@ class Install extends AbstractInstaller
         'BodyLocation'
     ];
     /**
-     * @var string
-     */
-    private $currentVersion;
-    /**
      * Install constructor.
      *
      * @param SerializerInterface      $serializer
@@ -58,7 +54,6 @@ class Install extends AbstractInstaller
         $this->serializer = $serializer;
         $this->installSourcesPath = __DIR__ . '/../Resources/install';
         $this->fileSystem = new Filesystem();
-        $this->currentVersion = Versions::getVersion(ProductBundle::PACKAGE_NAME);
     }
     /**
      * {@inheritdoc}
