@@ -33,8 +33,8 @@ services:
   pimcore:
 #    image: dpfaffenbauer/pimcore:PHP7.2-apache
     build:
-      context: .
-      dockerfile: pimcore-app/Dockerfile
+      context: pimcore-app
+      dockerfile: Dockerfile
     container_name: pimcore-app
     volumes:
       - pimcore-app:/var/www/html
