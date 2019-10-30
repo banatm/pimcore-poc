@@ -15,13 +15,13 @@
     "provider": "external_sql",
     "class": "Product",
     "configuration": {
-        "query": "select *, concat('[',code,'] ',post_title) as title,true as 'published' from wp_postmeta where code<>'0'",
         "host": "db",
         "username": "root",
         "password": "ROOT",
         "database": "synevo_ro",
         "adapter": "pdo_mysql",
-        "port": 3306
+        "port": 3306,
+        "query": "select *, concat('[',code,'] ',replace(replace(post_title,'\/','-'),'>','gt')) as title,true as 'published' from wp_postmeta where code<>'0'"
     },
     "mapping": [
         {
@@ -84,17 +84,17 @@
             "primaryIdentifier": false,
             "setter": null,
             "setterConfig": null,
-            "fromColumn": "title",
-            "toColumn": "o_key",
+            "fromColumn": "published",
+            "toColumn": "o_published",
             "interpreter": null,
             "interpreterConfig": null
-        },        
+        },
         {
             "primaryIdentifier": false,
             "setter": null,
             "setterConfig": null,
-            "fromColumn": "published",
-            "toColumn": "o_published",
+            "fromColumn": "title",
+            "toColumn": "o_key",
             "interpreter": null,
             "interpreterConfig": null
         }

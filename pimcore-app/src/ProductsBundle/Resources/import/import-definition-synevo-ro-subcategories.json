@@ -15,13 +15,13 @@
     "provider": "external_sql",
     "class": "Category",
     "configuration": {
-        "query": "SELECT *,true as 'published' FROM `vCat` where parent_category is not null",
         "host": "db",
         "username": "root",
         "password": "ROOT",
         "database": "synevo_ro",
         "adapter": "pdo_mysql",
-        "port": 3306
+        "port": 3306,
+        "query": "SELECT *,true as 'published' FROM `categories` where parent_category is not null"
     },
     "mapping": [
         {
@@ -46,6 +46,15 @@
             "primaryIdentifier": false,
             "setter": null,
             "setterConfig": null,
+            "fromColumn": "published",
+            "toColumn": "o_published",
+            "interpreter": null,
+            "interpreterConfig": null
+        },
+        {
+            "primaryIdentifier": false,
+            "setter": null,
+            "setterConfig": null,
             "fromColumn": "category_name",
             "toColumn": "o_key",
             "interpreter": null,
@@ -63,15 +72,6 @@
                 "field": "webpage_id",
                 "match_unpublished": true
             }
-        },
-        {
-            "primaryIdentifier": false,
-            "setter": null,
-            "setterConfig": null,
-            "fromColumn": "published",
-            "toColumn": "o_published",
-            "interpreter": null,
-            "interpreterConfig": null
         }
     ],
     "runner": null,
