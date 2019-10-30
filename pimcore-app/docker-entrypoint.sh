@@ -1,10 +1,10 @@
 #!/bin/bash
-if [ -e /var/www/html/var/config/system.php ]; then
+
+if [ -e /var/www/html/var/config/system.yml ]; then
   ./bin/console pimcore:deployment:classes-rebuild
-  echo "/var/www/var/config/system.php was found...skipping installation"
+  echo "/var/www/html/var/config/system.yml was found...skipping installation"
 else
   cd /var/www/html
-#  composer require pimcore/data-hub:dev-master w-vision/data-definitions:^3.0
   ./vendor/bin/pimcore-install --no-interaction
   ./bin/console pimcore:bundle:enable DataDefinitionsBundle
   ./bin/console pimcore:bundle:install DataDefinitionsBundle
