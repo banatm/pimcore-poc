@@ -1,0 +1,77 @@
+{
+    "loader": "primary_key",
+    "objectPath": "\/Tubes",
+    "cleaner": "none",
+    "key": null,
+    "filter": null,
+    "renameExistingObjects": true,
+    "relocateExistingObjects": true,
+    "skipNewObjects": false,
+    "skipExistingObjects": false,
+    "createVersion": false,
+    "omitMandatoryCheck": false,
+    "forceLoadObject": false,
+    "name": "silab_tubes",
+    "provider": "external_sql",
+    "class": "Tube",
+    "configuration": {
+        "host": "db",
+        "username": "root",
+        "password": "ROOT",
+        "database": "synevo_ro",
+        "adapter": "pdo_mysql",
+        "port": 3306,
+        "query": "SELECT *,true as 'published',replace(replace(TubeName,'\/','-'),'>','gt') as 'okey' FROM `vTubes`"
+    },
+    "mapping": [
+        {
+            "primaryIdentifier": false,
+            "setter": null,
+            "setterConfig": null,
+            "fromColumn": "TubeName",
+            "toColumn": "Name",
+            "interpreter": null,
+            "interpreterConfig": null
+        },
+        {
+            "primaryIdentifier": false,
+            "setter": null,
+            "setterConfig": null,
+            "fromColumn": "TubeId",
+            "toColumn": "silab_id",
+            "interpreter": null,
+            "interpreterConfig": null
+        },
+        {
+            "primaryIdentifier": false,
+            "setter": null,
+            "setterConfig": null,
+            "fromColumn": "TubeBarcodeNumber",
+            "toColumn": "barcode_suffix",
+            "interpreter": null,
+            "interpreterConfig": null
+        },
+        {
+            "primaryIdentifier": false,
+            "setter": null,
+            "setterConfig": null,
+            "fromColumn": "published",
+            "toColumn": "o_published",
+            "interpreter": null,
+            "interpreterConfig": null
+        },
+        {
+            "primaryIdentifier": true,
+            "setter": null,
+            "setterConfig": null,
+            "fromColumn": "okey",
+            "toColumn": "o_key",
+            "interpreter": null,
+            "interpreterConfig": null
+        }
+    ],
+    "runner": null,
+    "stopOnException": false,
+    "failureNotificationDocument": null,
+    "successNotificationDocument": null
+}

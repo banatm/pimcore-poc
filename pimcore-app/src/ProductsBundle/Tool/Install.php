@@ -39,7 +39,9 @@ class Install extends AbstractInstaller
         'Product',
         'Disease',
         'Category',
-        'BodyLocation'
+        'BodyLocation',
+        'Substance',
+        'Tube'
     ];
     /**
      * Install constructor.
@@ -179,6 +181,29 @@ class Install extends AbstractInstaller
                 'o_published'        => true,
             ]);
         }
+
+        if (!$bodylocations instanceof DataObject\Folder) {
+            DataObject\Folder::create([
+                'o_parentId'         => 1,
+                'o_creationDate'     => time(),
+                'o_userOwner'        => $this->getUserId(),
+                'o_userModification' => $this->getUserId(),
+                'o_key'              => 'Substances',
+                'o_published'        => true,
+            ]);
+        }
+
+        if (!$bodylocations instanceof DataObject\Folder) {
+            DataObject\Folder::create([
+                'o_parentId'         => 1,
+                'o_creationDate'     => time(),
+                'o_userOwner'        => $this->getUserId(),
+                'o_userModification' => $this->getUserId(),
+                'o_key'              => 'Tubes',
+                'o_published'        => true,
+            ]);
+        }
+
         return true;
     }
 

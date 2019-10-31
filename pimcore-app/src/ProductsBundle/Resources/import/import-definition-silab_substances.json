@@ -1,0 +1,68 @@
+{
+    "loader": "primary_key",
+    "objectPath": "\/Substances",
+    "cleaner": "none",
+    "key": null,
+    "filter": null,
+    "renameExistingObjects": true,
+    "relocateExistingObjects": true,
+    "skipNewObjects": false,
+    "skipExistingObjects": false,
+    "createVersion": false,
+    "omitMandatoryCheck": false,
+    "forceLoadObject": false,
+    "name": "silab_substances",
+    "provider": "external_sql",
+    "class": "Substance",
+    "configuration": {
+        "host": "db",
+        "username": "root",
+        "password": "ROOT",
+        "database": "synevo_ro",
+        "adapter": "pdo_mysql",
+        "port": 3306,
+        "query": "SELECT *,true as 'published'  FROM `vSub`"
+    },
+    "mapping": [
+        {
+            "primaryIdentifier": true,
+            "setter": null,
+            "setterConfig": null,
+            "fromColumn": "SubstanceName",
+            "toColumn": "Name",
+            "interpreter": null,
+            "interpreterConfig": null
+        },
+        {
+            "primaryIdentifier": false,
+            "setter": null,
+            "setterConfig": null,
+            "fromColumn": "SubstanceId",
+            "toColumn": "silab_id",
+            "interpreter": null,
+            "interpreterConfig": null
+        },
+        {
+            "primaryIdentifier": false,
+            "setter": null,
+            "setterConfig": null,
+            "fromColumn": "published",
+            "toColumn": "o_published",
+            "interpreter": null,
+            "interpreterConfig": null
+        },
+        {
+            "primaryIdentifier": false,
+            "setter": null,
+            "setterConfig": null,
+            "fromColumn": "SubstanceName",
+            "toColumn": "o_key",
+            "interpreter": null,
+            "interpreterConfig": null
+        }
+    ],
+    "runner": null,
+    "stopOnException": false,
+    "failureNotificationDocument": null,
+    "successNotificationDocument": null
+}
