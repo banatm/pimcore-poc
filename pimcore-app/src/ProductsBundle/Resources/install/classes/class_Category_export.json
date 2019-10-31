@@ -134,7 +134,7 @@
                         "fieldtype": "reverseManyToManyObjectRelation",
                         "ownerClassName": "Product",
                         "ownerClassId": null,
-                        "ownerFieldName": "Category",
+                        "ownerFieldName": "Categories",
                         "lazyLoading": true,
                         "width": "",
                         "height": "",
