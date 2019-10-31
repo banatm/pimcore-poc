@@ -1,13 +1,21 @@
 
-#Setup
-Run 
-```docker-compose up```
+# Setup
+1. Run ```docker-compose up```
+2. Import definitions by
+  ```
+  docker exec -it pimcore-app bash
+  ./bin/console data-definitions:import -d synevo-ro-main-categories
+  ./bin/console data-definitions:import -d synevo-ro-subcategories
+  ./bin/console data-definitions:import -d synevo-ro-products
+  ```
 
-#Example graphql queries:
+# Example graphql queries:
+## endpoint
 use http://{IP}:2000/pimcore-graphql-webservices/test?apikey={APIKEY}
 demo apikey is 'qwerty1234567890'
 
-```query {
+## query product lists
+``` query {
   getProductListing(first: 10) {
     edges {
       node {
@@ -28,11 +36,13 @@ demo apikey is 'qwerty1234567890'
     }
     totalCount
   }
-}```
+}
+```
 
+## get product details
 ```
 query{
-  getProduct(id: 445){
+  getProduct(id: 117){
     id
     classname
     Code
