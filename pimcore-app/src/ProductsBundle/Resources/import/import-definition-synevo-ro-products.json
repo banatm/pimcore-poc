@@ -55,17 +55,8 @@
             "primaryIdentifier": false,
             "setter": null,
             "setterConfig": null,
-            "fromColumn": "ID",
-            "toColumn": "webpage_id",
-            "interpreter": null,
-            "interpreterConfig": null
-        },
-        {
-            "primaryIdentifier": false,
-            "setter": null,
-            "setterConfig": null,
             "fromColumn": "category_id",
-            "toColumn": "Category",
+            "toColumn": "Categories",
             "interpreter": "nested",
             "interpreterConfig": {
                 "interpreters": [
@@ -76,9 +67,24 @@
                             "field": "webpage_id",
                             "match_unpublished": true
                         }
+                    },
+                    {
+                        "type": "expression",
+                        "interpreterConfig": {
+                            "expression": "[value]"
+                        }
                     }
                 ]
             }
+        },
+        {
+            "primaryIdentifier": false,
+            "setter": null,
+            "setterConfig": null,
+            "fromColumn": "ID",
+            "toColumn": "webpage_id",
+            "interpreter": null,
+            "interpreterConfig": null
         },
         {
             "primaryIdentifier": false,

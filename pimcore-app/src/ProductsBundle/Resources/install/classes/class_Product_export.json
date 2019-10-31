@@ -33,7 +33,7 @@
                 "name": "Layout",
                 "type": null,
                 "region": null,
-                "title": "Basic",
+                "title": "",
                 "width": null,
                 "height": null,
                 "collapsible": false,
@@ -48,7 +48,7 @@
                         "layout": null,
                         "border": false,
                         "icon": "",
-                        "name": "Layout",
+                        "name": "Basic",
                         "type": null,
                         "region": null,
                         "title": "Basic",
@@ -149,7 +149,7 @@
                                 "childs": [
                                     {
                                         "fieldtype": "wysiwyg",
-                                        "width": "",
+                                        "width": 1000,
                                         "height": "",
                                         "queryColumnType": "longtext",
                                         "columnType": "longtext",
@@ -183,7 +183,7 @@
                         "layout": null,
                         "border": false,
                         "icon": "",
-                        "name": "Layout",
+                        "name": "Relations",
                         "type": null,
                         "region": null,
                         "title": "Relations",
@@ -196,28 +196,25 @@
                         "permissions": null,
                         "childs": [
                             {
-                                "fieldtype": "manyToManyRelation",
+                                "fieldtype": "manyToManyObjectRelation",
                                 "width": "",
                                 "height": "",
                                 "maxItems": "",
-                                "assetUploadPath": "",
                                 "queryColumnType": "text",
                                 "phpdocType": "array",
                                 "relationType": true,
-                                "objectsAllowed": true,
-                                "assetsAllowed": false,
-                                "assetTypes": [],
-                                "documentsAllowed": false,
-                                "documentTypes": [],
+                                "visibleFields": "id,Name,fullpath",
+                                "optimizedAdminLoading": false,
+                                "visibleFieldDefinitions": [],
                                 "lazyLoading": true,
                                 "classes": [
                                     {
-                                        "classes": "BodyLocation"
+                                        "classes": "Category"
                                     }
                                 ],
                                 "pathFormatterClass": "",
-                                "name": "BodyParts",
-                                "title": "BodyParts",
+                                "name": "Categories",
+                                "title": "Categories",
                                 "tooltip": "",
                                 "mandatory": false,
                                 "noteditable": false,
@@ -231,28 +228,25 @@
                                 "visibleSearch": false
                             },
                             {
-                                "fieldtype": "manyToManyRelation",
+                                "fieldtype": "manyToManyObjectRelation",
                                 "width": "",
                                 "height": "",
                                 "maxItems": "",
-                                "assetUploadPath": "",
                                 "queryColumnType": "text",
                                 "phpdocType": "array",
                                 "relationType": true,
-                                "objectsAllowed": true,
-                                "assetsAllowed": false,
-                                "assetTypes": [],
-                                "documentsAllowed": false,
-                                "documentTypes": [],
+                                "visibleFields": "Name,id",
+                                "optimizedAdminLoading": false,
+                                "visibleFieldDefinitions": [],
                                 "lazyLoading": true,
                                 "classes": [
                                     {
-                                        "classes": "Disease"
+                                        "classes": "BodyLocation"
                                     }
                                 ],
                                 "pathFormatterClass": "",
-                                "name": "Diseases",
-                                "title": "Diseases",
+                                "name": "BodyLocations",
+                                "title": "Body Locations the test is relevant to",
                                 "tooltip": "",
                                 "mandatory": false,
                                 "noteditable": false,
@@ -265,6 +259,112 @@
                                 "visibleGridView": false,
                                 "visibleSearch": false
                             },
+                            {
+                                "fieldtype": "manyToManyObjectRelation",
+                                "width": "",
+                                "height": "",
+                                "maxItems": "",
+                                "queryColumnType": "text",
+                                "phpdocType": "array",
+                                "relationType": true,
+                                "visibleFields": [],
+                                "optimizedAdminLoading": false,
+                                "visibleFieldDefinitions": [],
+                                "lazyLoading": true,
+                                "classes": [
+                                    {
+                                        "classes": "Disease"
+                                    }
+                                ],
+                                "pathFormatterClass": "",
+                                "name": "Diseases",
+                                "title": "Diseases the test is relevant to",
+                                "tooltip": "",
+                                "mandatory": false,
+                                "noteditable": false,
+                                "index": false,
+                                "locked": false,
+                                "style": "",
+                                "permissions": null,
+                                "datatype": "data",
+                                "invisible": false,
+                                "visibleGridView": false,
+                                "visibleSearch": false
+                            }
+                        ],
+                        "locked": false
+                    },
+                    {
+                        "fieldtype": "panel",
+                        "labelWidth": 100,
+                        "layout": null,
+                        "border": false,
+                        "icon": "",
+                        "name": "Package contents",
+                        "type": null,
+                        "region": null,
+                        "title": "Package contents",
+                        "width": null,
+                        "height": null,
+                        "collapsible": false,
+                        "collapsed": false,
+                        "bodyStyle": "",
+                        "datatype": "layout",
+                        "permissions": null,
+                        "childs": [
+                            {
+                                "fieldtype": "manyToManyObjectRelation",
+                                "width": "",
+                                "height": "",
+                                "maxItems": "",
+                                "queryColumnType": "text",
+                                "phpdocType": "array",
+                                "relationType": true,
+                                "visibleFields": "id,Code,Name",
+                                "optimizedAdminLoading": false,
+                                "visibleFieldDefinitions": [],
+                                "lazyLoading": true,
+                                "classes": [
+                                    {
+                                        "classes": "Product"
+                                    }
+                                ],
+                                "pathFormatterClass": "",
+                                "name": "Included",
+                                "title": "Products included in this profile",
+                                "tooltip": "",
+                                "mandatory": false,
+                                "noteditable": false,
+                                "index": false,
+                                "locked": false,
+                                "style": "",
+                                "permissions": null,
+                                "datatype": "data",
+                                "invisible": false,
+                                "visibleGridView": false,
+                                "visibleSearch": false
+                            }
+                        ],
+                        "locked": false
+                    },
+                    {
+                        "fieldtype": "panel",
+                        "labelWidth": 100,
+                        "layout": null,
+                        "border": false,
+                        "icon": "",
+                        "name": "Others",
+                        "type": null,
+                        "region": null,
+                        "title": "Others",
+                        "width": null,
+                        "height": null,
+                        "collapsible": false,
+                        "collapsed": false,
+                        "bodyStyle": "",
+                        "datatype": "layout",
+                        "permissions": null,
+                        "childs": [
                             {
                                 "fieldtype": "input",
                                 "width": null,
@@ -291,29 +391,17 @@
                                 "visibleSearch": false
                             },
                             {
-                                "fieldtype": "manyToOneRelation",
-                                "width": "",
-                                "assetUploadPath": "",
-                                "relationType": true,
-                                "queryColumnType": {
-                                    "id": "int(11)",
-                                    "type": "enum('document','asset','object')"
-                                },
-                                "phpdocType": "\\Pimcore\\Model\\Document\\Page | \\Pimcore\\Model\\Document\\Snippet | \\Pimcore\\Model\\Document | \\Pimcore\\Model\\Asset | \\Pimcore\\Model\\DataObject\\AbstractObject",
-                                "objectsAllowed": true,
-                                "assetsAllowed": false,
-                                "assetTypes": [],
-                                "documentsAllowed": false,
-                                "documentTypes": [],
-                                "lazyLoading": true,
-                                "classes": [
-                                    {
-                                        "classes": "Category"
-                                    }
-                                ],
-                                "pathFormatterClass": "",
-                                "name": "Category",
-                                "title": "Category",
+                                "fieldtype": "input",
+                                "width": null,
+                                "queryColumnType": "varchar",
+                                "columnType": "varchar",
+                                "columnLength": 190,
+                                "phpdocType": "string",
+                                "regex": "",
+                                "unique": false,
+                                "showCharCount": false,
+                                "name": "silab_id",
+                                "title": "silab_id",
                                 "tooltip": "",
                                 "mandatory": false,
                                 "noteditable": false,
@@ -322,62 +410,7 @@
                                 "style": "",
                                 "permissions": null,
                                 "datatype": "data",
-                                "invisible": false,
-                                "visibleGridView": false,
-                                "visibleSearch": false
-                            }
-                        ],
-                        "locked": false
-                    },
-                    {
-                        "fieldtype": "panel",
-                        "labelWidth": 100,
-                        "layout": null,
-                        "border": false,
-                        "icon": "",
-                        "name": "Layout",
-                        "type": null,
-                        "region": null,
-                        "title": "Package contents",
-                        "width": null,
-                        "height": null,
-                        "collapsible": false,
-                        "collapsed": false,
-                        "bodyStyle": "",
-                        "datatype": "layout",
-                        "permissions": null,
-                        "childs": [
-                            {
-                                "fieldtype": "manyToManyRelation",
-                                "width": "",
-                                "height": "",
-                                "maxItems": "",
-                                "assetUploadPath": "",
-                                "queryColumnType": "text",
-                                "phpdocType": "array",
-                                "relationType": true,
-                                "objectsAllowed": true,
-                                "assetsAllowed": false,
-                                "assetTypes": [],
-                                "documentsAllowed": false,
-                                "documentTypes": [],
-                                "lazyLoading": true,
-                                "classes": [
-                                    {
-                                        "classes": "Product"
-                                    }
-                                ],
-                                "pathFormatterClass": "",
-                                "name": "Included",
-                                "title": "Included",
-                                "tooltip": "",
-                                "mandatory": false,
-                                "noteditable": false,
-                                "index": false,
-                                "locked": false,
-                                "style": "",
-                                "permissions": null,
-                                "datatype": "data",
+                                "relationType": false,
                                 "invisible": false,
                                 "visibleGridView": false,
                                 "visibleSearch": false
