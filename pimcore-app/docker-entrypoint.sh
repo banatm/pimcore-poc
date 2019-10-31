@@ -6,6 +6,8 @@ if [ -e /var/www/html/var/config/system.yml ]; then
 else
   cd /var/www/html
   ./vendor/bin/pimcore-install --no-interaction
+  #copy datahub configuration
+  cp ./src/ProductsBundle/Resources/install/config/datahub-configurations.php ./var/config/datahub-configurations.php
   #install bundles
   ./bin/console pimcore:bundle:enable DataDefinitionsBundle
   ./bin/console pimcore:bundle:install DataDefinitionsBundle
