@@ -21,7 +21,7 @@
         "database": "synevo_ro",
         "adapter": "pdo_mysql",
         "port": 3306,
-        "query": "SELECT *,true as 'published', concat('[',Code,'] ',replace(replace(Name,'\/','-'),'>','gt')) as title FROM `vSilabProducts`"
+        "query": "SELECT *,true as 'published', concat('[',replace(replace(replace(Code,'\/','-'),'>','gt'),'<','lt'),'] ',replace(replace(replace(Name,'\/','-'),'>','gt'),'<','lt')) as title FROM `vSilabProducts`"
     },
     "mapping": [
         {
@@ -46,6 +46,68 @@
             "primaryIdentifier": false,
             "setter": null,
             "setterConfig": null,
+            "fromColumn": "substances",
+            "toColumn": "Substances",
+            "interpreter": "nested",
+            "interpreterConfig": {
+                "interpreters": [
+                    {
+                        "type": "expression",
+                        "interpreterConfig": {
+                            "expression": "explode(',', value)"
+                        }
+                    },
+                    {
+                        "type": "iterator",
+                        "interpreterConfig": {
+                            "interpreter": {
+                                "type": "object_resolver",
+                                "interpreterConfig": {
+                                    "class": "Substance",
+                                    "field": "silab_id",
+                                    "match_unpublished": true
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "primaryIdentifier": false,
+            "setter": null,
+            "setterConfig": null,
+            "fromColumn": "tubes",
+            "toColumn": "Tubes",
+            "interpreter": "nested",
+            "interpreterConfig": {
+                "interpreters": [
+                    {
+                        "type": "expression",
+                        "interpreterConfig": {
+                            "expression": "explode(',', value)"
+                        }
+                    },
+                    {
+                        "type": "iterator",
+                        "interpreterConfig": {
+                            "interpreter": {
+                                "type": "object_resolver",
+                                "interpreterConfig": {
+                                    "class": "Tube",
+                                    "field": "silab_id",
+                                    "match_unpublished": true
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "primaryIdentifier": false,
+            "setter": null,
+            "setterConfig": null,
             "fromColumn": "Services",
             "toColumn": "Included",
             "interpreter": "nested",
@@ -64,10 +126,16 @@
                                 "type": "object_resolver",
                                 "interpreterConfig": {
                                     "class": "Product",
-                                    "field": "silab_id",
+                                    "field": "Code",
                                     "match_unpublished": true
                                 }
                             }
+                        }
+                    },
+                    {
+                        "type": "expression",
+                        "interpreterConfig": {
+                            "expression": "value"
                         }
                     }
                 ]
