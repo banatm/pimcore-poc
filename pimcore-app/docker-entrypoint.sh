@@ -26,8 +26,9 @@ else
   ./bin/console data-definitions:import -d synevo-ro-main-categories
   ./bin/console data-definitions:import -d synevo-ro-subcategories
   ./bin/console data-definitions:import -d synevo-ro-products
-  ./bin/console data-definitions:import -d silab_substances
-  ./bin/console data-definitions:import -d silab_tubes
+  ./bin/console data-definitions:import -d silab-substances
+  ./bin/console data-definitions:import -d silab-tubes
+  ./bin/console data-definitions:import -d silab-products
 
   chown -R www-data:www-data /var/www/html
 fi

@@ -1,6 +1,6 @@
 {
     "loader": "primary_key",
-    "objectPath": "\/Substances",
+    "objectPath": "\/Tubes",
     "cleaner": "none",
     "key": null,
     "filter": null,
@@ -11,9 +11,9 @@
     "createVersion": false,
     "omitMandatoryCheck": false,
     "forceLoadObject": false,
-    "name": "silab_substances",
+    "name": "silab-tubes",
     "provider": "external_sql",
-    "class": "Substance",
+    "class": "Tube",
     "configuration": {
         "host": "db",
         "username": "root",
@@ -21,14 +21,14 @@
         "database": "synevo_ro",
         "adapter": "pdo_mysql",
         "port": 3306,
-        "query": "SELECT *,true as 'published'  FROM `vSub`"
+        "query": "SELECT *,true as 'published',replace(replace(TubeName,'\/','-'),'>','gt') as 'okey' FROM `vTubes`"
     },
     "mapping": [
         {
-            "primaryIdentifier": true,
+            "primaryIdentifier": false,
             "setter": null,
             "setterConfig": null,
-            "fromColumn": "SubstanceName",
+            "fromColumn": "TubeName",
             "toColumn": "Name",
             "interpreter": null,
             "interpreterConfig": null
@@ -37,8 +37,17 @@
             "primaryIdentifier": false,
             "setter": null,
             "setterConfig": null,
-            "fromColumn": "SubstanceId",
+            "fromColumn": "TubeId",
             "toColumn": "silab_id",
+            "interpreter": null,
+            "interpreterConfig": null
+        },
+        {
+            "primaryIdentifier": false,
+            "setter": null,
+            "setterConfig": null,
+            "fromColumn": "TubeBarcodeNumber",
+            "toColumn": "barcode_suffix",
             "interpreter": null,
             "interpreterConfig": null
         },
@@ -52,10 +61,10 @@
             "interpreterConfig": null
         },
         {
-            "primaryIdentifier": false,
+            "primaryIdentifier": true,
             "setter": null,
             "setterConfig": null,
-            "fromColumn": "SubstanceName",
+            "fromColumn": "okey",
             "toColumn": "o_key",
             "interpreter": null,
             "interpreterConfig": null
