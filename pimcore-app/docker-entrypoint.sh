@@ -20,8 +20,9 @@ else
   ./bin/console data-definitions:definition:import:import ./src/ProductsBundle/Resources/import/import-definition-synevo-ro-main-categories.json
   ./bin/console data-definitions:definition:import:import ./src/ProductsBundle/Resources/import/import-definition-synevo-ro-subcategories.json
   ./bin/console data-definitions:definition:import:import ./src/ProductsBundle/Resources/import/import-definition-synevo-ro-products.json
-  ./bin/console data-definitions:definition:import:import ./src/ProductsBundle/Resources/import/import-definition-silab_tubes.json
-  ./bin/console data-definitions:definition:import:import ./src/ProductsBundle/Resources/import/import-definition-silab_substances.json
+  ./bin/console data-definitions:definition:import:import ./src/ProductsBundle/Resources/import/import-definition-silab-tubes.json
+  ./bin/console data-definitions:definition:import:import ./src/ProductsBundle/Resources/import/import-definition-silab-substances.json
+  ./bin/console data-definitions:definition:import:import ./src/ProductsBundle/Resources/import/import-definition-silab-products.json
   #load data
   ./bin/console data-definitions:import -d synevo-ro-main-categories
   ./bin/console data-definitions:import -d synevo-ro-subcategories
