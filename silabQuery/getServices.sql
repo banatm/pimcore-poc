@@ -4,6 +4,7 @@ SELECT    sr.[ServiceId] AS [Id]
 			  ,sr.[MultipleSubstance] as[IsMultipleSubstance]
 			  ,sr.[SpecificAgeYN] AS [IsAgeSpecific]
 			  ,sr.SysServiceTypeId AS [Type]
+			  ,sr.ActiveYn as [Active]
 			  ,sr.WorkingDays
 			  ,vatc.[VATTypeCd] AS [VATCode]
 			  ,vatc.[Value] AS [VATValue]
