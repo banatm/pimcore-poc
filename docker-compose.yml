@@ -29,7 +29,7 @@ services:
     container_name: pimcore-phpmyadmin
     restart: always
     ports:
-      - '2002:80'
+      - '8080:80'
     environment:
       PMA_HOST: db
       MYSQL_ROOT_PASSWORD: ROOT
@@ -54,8 +54,8 @@ services:
      - PIMCORE_INSTALL_MYSQL_DATABASE=pimcore
      - PIMCORE_INSTALL_MYSQL_PORT=3306
     ports:
-     - "2000:80"
-     - "2001:443"
+     - "80:80"
+     - "443:443"
     links:
      - db:db
      - redis:redis
